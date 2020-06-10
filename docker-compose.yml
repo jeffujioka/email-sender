@@ -22,3 +22,14 @@ services:
             - ./web:/usr/share/nginx/html/
         ports:
             - 80:80
+    backend:
+        image: python:3.6
+        volumes:
+            # Application
+            - ./backend:/backend
+        working_dir: /backend
+        # this version also works -> 
+        # command: chmod +x && ./backend_app.sh
+        command: bash ./backend_app.sh
+        ports:
+            - 8080:8080
