@@ -14,4 +14,11 @@ services:
             - POSTGRES_USERS=postgres
             - POSTGRES_PASSWORD=postgres
 
-        
+    frontend:
+        # nginx:1.18 is not working ->
+        # nginx: [emerg] socket() [::]:80 failed (97: Address family not supported by protocol)
+        image: nginx:1.17 
+        volumes:
+            - ./web:/usr/share/nginx/html/
+        ports:
+            - 80:80
