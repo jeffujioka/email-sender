@@ -1,0 +1,17 @@
+version: '3.8'
+volumes:
+    email-data-volume:
+services:
+    email-sender-db:
+        image: postgres:12.3
+        volumes:
+            # data vollume
+            - email-data-volume:/var/lib/postgresql/data
+            # Scripts
+            - ./scripts:/scripts
+            - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+        environment: 
+            - POSTGRES_USERS=postgres
+            - POSTGRES_PASSWORD=postgres
+
+        
