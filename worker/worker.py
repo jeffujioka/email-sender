@@ -5,6 +5,7 @@ from random import randint
 
 if __name__ == "__main__":
     r = redis.Redis(host='queue', port=6379, db=0)
+    print('Waiting for messages...')
     while True:
         # msg = {'subject': 'Jefferson'}
         msg = json.loads(r.blpop('sender')[1])
