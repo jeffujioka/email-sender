@@ -20,6 +20,8 @@ services:
         image: nginx:1.17 
         volumes:
             - ./web:/usr/share/nginx/html/
+            # reverse proxy config
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
         ports:
             - 80:80
     backend:
@@ -31,5 +33,3 @@ services:
         # this version also works -> 
         # command: chmod +x && ./backend_app.sh
         command: bash ./backend_app.sh
-        ports:
-            - 8080:8080
