@@ -35,7 +35,7 @@ services:
         depends_on: 
             - backend
     backend:
-        image: python:3.6
+        build: backend
         volumes:
             # Application
             - ./backend:/backend
@@ -48,8 +48,9 @@ services:
             - ENV_ESENDER_REDIS_PORT=6379
         working_dir: /backend
         # this version also works -> 
-        # command: chmod +x && ./backend_app.sh
-        command: bash ./backend_app.sh
+        # command: chmod +x && ./backend_app.sh  # deprecated (using Dockerfile)
+        # command: bash ./backend_app.sh         # deprecated (using Dockerfile)
+        command: ./sender.py
         networks: 
             - database
             - frontend
