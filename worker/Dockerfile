@@ -2,6 +2,6 @@ FROM python:3.6
 LABEL maintainer 'Jefferson Masahiro Fujioka <jefferson.fujioka@gmail.com>'
 
 ENV PYTHONUNBUFFERED 1
-RUN pip install redis==2.10.5
+RUN pip install redis==3.5.3
 
 ENTRYPOINT [ "/usr/local/bin/python" ]
