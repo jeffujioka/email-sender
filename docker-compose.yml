@@ -40,7 +40,7 @@ services:
             # Application
             - ./backend:/backend
         environment: 
-            - ENV_ESENDER_DB_HOSTNAME=email-sender-db
+            #- ENV_ESENDER_DB_HOSTNAME=email-sender-db # overwriten by docker-compose.override.yml
             - ENV_ESENDER_DB_NAME=email_sender
             - ENV_ESENDER_DB_USER=postgres
             - ENV_ESENDER_DB_PASSWORD=postgres
