@@ -5,7 +5,6 @@ networks:
     database:
     frontend:
     queue_network:
-
 services:
     email-sender-db:
         image: postgres:12.3
@@ -40,6 +39,13 @@ services:
         volumes:
             # Application
             - ./backend:/backend
+        environment: 
+            - ENV_ESENDER_DB_HOSTNAME=email-sender-db
+            - ENV_ESENDER_DB_NAME=email_sender
+            - ENV_ESENDER_DB_USER=postgres
+            - ENV_ESENDER_DB_PASSWORD=postgres
+            - ENV_ESENDER_REDIS_HOSTNAME=queue
+            - ENV_ESENDER_REDIS_PORT=6379
         working_dir: /backend
         # this version also works -> 
         # command: chmod +x && ./backend_app.sh
