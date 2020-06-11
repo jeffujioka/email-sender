@@ -10,7 +10,8 @@ services:
         image: postgres:12.3
         volumes:
             # data vollume
-            - email-data-volume:/var/lib/postgresql/data
+            #- email-data-volume:/var/lib/postgresql/data
+            - src=email-data-volume,dst=/var/lib/postgresql/data
             # Scripts
             - ./scripts:/scripts
             - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
